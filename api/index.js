@@ -113,7 +113,8 @@ app.post(
 // Default route for testing
 app.get('/', (req, res) => {
   res.send('Welcome to the UIET Admission Form API!');
+  
 });
-
+console.log("hello")
 // Export your app
 export default app;
