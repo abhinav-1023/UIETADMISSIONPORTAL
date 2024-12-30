@@ -12,6 +12,11 @@ app.get('/favicon.ico', (req, res) => res.status(204).end());
 app.use('/favicon.ico', express.static('docs/favicon.ico'));
 
 // Middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Internal Server Error', error: err.message });
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ 
